@@ -54,4 +54,4 @@ Isso irá compilar o projeto e armazenar os artefatos de construção no diretó
 
 ### Licença
 
-Este projeto está licenciado sob a MIT License.
+© 2026 João Meneses. Todos os direitos reservados.
