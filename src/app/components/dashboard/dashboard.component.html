@@ -1,0 +1,74 @@
+<div class="dashboard-container">
+  <header>
+    <h1>FlowPay | Central de Atendimento</h1>
+    <div class="fila-status" [class.tem-fila]="fila.length > 0">
+      <span class="material-icons">Fila: </span>
+      <strong>{{ fila.length }}</strong> atendimento(s) aguardando
+    </div>
+  </header>
+
+  <section class="triagem-container">
+    <h2>Como podemos ajudar hoje?</h2>
+    <div class="botoes-especialidade">
+      <button (click)="criarComEspecialidade('CARTAO')" class="btn-esp cartao">💳 Cartão</button>
+      <button (click)="criarComEspecialidade('PIX')" class="btn-esp pix">💸 PIX</button>
+      <button (click)="criarComEspecialidade('TROCAS')" class="btn-esp trocas">💰 Trocas</button>
+      <button (click)="exibirInputOutros = !exibirInputOutros" class="btn-esp outros">🔍 Outros</button>
+    </div>
+
+    <div class="input-livre" *ngIf="exibirInputOutros">
+      <input #novoAssunto type="text" placeholder="Descreva brevemente o problema..." class="input-assunto">
+      <button (click)="criarChamado(novoAssunto.value); novoAssunto.value=''" class="btn-criar">
+        Enviar
+      </button>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+  <div class="grid-atendentes">
+    <div *ngFor="let atendente of atendentes" class="card-atendente">
+      <div class="card-header">
+        <div>
+          <h3>{{ atendente.nome }}</h3>
+          <span class="badge-especialidade">{{ atendente.especialidade }}</span>
+        </div>
+        <span class="badge-time">{{ atendente.time }}</span>
+      </div>
+
+      <div class="card-body">
+        <p>Ocupação: <strong>{{ atendente.atendimentosAtivos }}/3</strong></p>
+        <div class="progresso-container">
+          <div class="barra" [style.width.%]="(atendente.atendimentosAtivos / 3) * 100"></div>
+        </div>
+
+        <ul class="lista-atendimentos-card">
+          <li *ngFor="let at of getAtendimentosDo(atendente.nome)" class="item-atendimento">
+            <span>#{{ at.id }} - {{ at.assunto }}</span>
+            <button (click)="finalizar(at.id!)" class="btn-finalizar" title="Finalizar Atendimento">✖</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="fila-detalhada" *ngIf="fila.length > 0">
+    <h3>Detalhes da Fila de Espera</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Assunto</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of fila">
+          <td>#{{ item.id }}</td>
+          <td>{{ item.assunto }}</td>
+          <td><span class="status-tag">{{ item.status }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
