@@ -1,59 +1,57 @@
+
 # FlowpayFrontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+Este projeto foi gerado utilizando o Angular CLI versão 19.2.5. A aplicação é um painel de operações com polling reativo, projetado para fornecer uma interface limpa e eficiente para gerenciar filas e atendimentos.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- **Dashboard de Operações:** Implementação de uma interface interativa para monitoramento de atendimentos em tempo real.
+- **Polling Reativo:** A sincronização de dados entre a interface e o back-end é realizada de forma reativa utilizando RxJS e polling adaptativo.
+- **Design Moderno:** Interface baseada em um Design System customizado com variáveis CSS, adotando o conceito de Glassmorphism para uma estética moderna.
+- **Micro-interações:** Botões com efeito de 'reveal' e barras de progresso com transições suaves utilizando `cubic-bezier` para uma experiência de usuário dinâmica e fluída.
+- **Lógica de Triagem Automática:** Integração com o serviço de domínio do back-end para realizar a triagem automática de chamados.
+- **Sincronização de Estado:** Uso de `forkJoin` para garantir a consistência dos dados entre os atendentes e a fila de espera.
+
+## Instruções para Desenvolvimento
+
+### Servidor de Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento local, execute o seguinte comando:
 
 ```bash
 ng serve
 ```
+Após a execução, abra o seu navegador e navegue até http://localhost:4200. A aplicação será recarregada automaticamente sempre que você modificar qualquer arquivo de origem.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Estrutura do Projeto
 
-## Code scaffolding
+- **Componentes Standalone:** O projeto utiliza Angular 19 Standalone Components para uma estrutura mais moderna e modular.
+- **RxJS para Polling:** Utilização de RxJS para implementar polling reativo e adaptativo, garantindo uma sincronização eficiente dos dados.
+- **Design System Customizado:** Adotamos um Design System próprio com variáveis CSS, otimizado para responsividade e usabilidade.
+- **Micro-interações e Animações:** Utilizamos animações e transições personalizadas para melhorar a experiência do usuário.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Scaffold de Código
+
+O Angular CLI inclui poderosas ferramentas de scaffolding para facilitar a criação de novos componentes, diretivas ou pipes. Para gerar um novo componente, execute:
 
 ```bash
 ng generate component component-name
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para ver uma lista completa dos esquemas disponíveis, execute:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+### Construção
 
-To build the project run:
+Para construir o projeto, execute o seguinte comando:
 
 ```bash
 ng build
 ```
+Isso irá compilar o projeto e armazenar os artefatos de construção no diretório dist/. Por padrão, o build de produção otimiza sua aplicação para performance e velocidade.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Licença
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este projeto está licenciado sob a MIT License.
