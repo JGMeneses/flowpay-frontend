@@ -55,3 +55,5 @@ Isso irá compilar o projeto e armazenar os artefatos de construção no diretó
 ### Licença
 
 © 2026 João Meneses. Todos os direitos reservados.
+<img width="1889" height="930" alt="image" src="https://github.com/user-attachments/assets/e3af666c-9403-4bb9-9b35-765eadd091dd" />
+
